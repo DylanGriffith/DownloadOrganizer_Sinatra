@@ -1,0 +1,7 @@
+downloads_dir: "/path/to/downloads/"
+movies_dir: "/path/to/movies/"
+shows_dir: "/path/to/shows/"
+user_name: "foo"
+password: "bar"
+overwrite_files: false
+delete_files: false

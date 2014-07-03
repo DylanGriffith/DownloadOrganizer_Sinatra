@@ -4,6 +4,6 @@ get "/downloads" do
   end
 end
 
-get "/assets/css/main.css" do
-  sass :'sass/main'
+get "/assets/css/*.css" do |css_file_name|
+  sass :"sass/#{css_file_name}"
 end

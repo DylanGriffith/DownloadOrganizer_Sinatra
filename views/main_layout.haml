@@ -1,0 +1,21 @@
+%html
+  %head
+    %link{:rel => :stylesheet, :type => :"text/css", :href => "/assets/css/main.css"}
+  %body
+    %div#top-panel
+      %div.navbar.navbar-inverse.navbar-fixed-top
+        %div.navbar-inner
+          %div.container
+            %button.btn.btn-navbar{:type => "button", :data => {:toggle => "collapse", :target => ".nav-collapse"}}
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            %a.brand{:href => "#"} Download Organizer
+            %div.nav-collapse.collapse
+              %ul.nav
+                %li#files
+                  %a{:href => "/downloads"} Downloads
+                %li#settings
+                  %a{:href => "/settings"} Settings
+    %div.some-blue-bit
+      = yield

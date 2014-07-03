@@ -1,1 +1,10 @@
-Downloads section!!!!!!!
+= render :haml, :episode_show
+= render :haml, :movie_show
+= render :haml, :torrent_show
+.container#files-main-view
+  %br
+  .row
+    %a.span9.btn.btn-primary.btn-large#search-files{:href => "#"} Search Downloads
+  %br
+  .row
+    #files-section.span9.hero-unit.hide

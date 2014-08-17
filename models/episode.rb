@@ -1,7 +1,7 @@
 class Episode
   attr_reader :file_path, :name, :season, :episode, :double
 
-  def initialize(file_path, name, season, episode, double = false)
+  def initialize(file_path, name, season, episode, double: false)
     @file_path = file_path
     @name = name
     @season = season

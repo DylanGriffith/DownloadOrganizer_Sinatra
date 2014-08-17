@@ -29,7 +29,7 @@ describe Episode do
     end
 
     it 'supports double episodes' do
-      e = Episode.new("/some/directory/with/24.avi", "24", 3, 9, true)
+      e = Episode.new("/some/directory/with/24.avi", "24", 3, 9, :double => true)
       expect(e.save_name).to eq("24.S03E09E10.avi")
     end
   end

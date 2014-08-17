@@ -27,6 +27,11 @@ describe Episode do
       e = Episode.new("/some/directory/with/24.avi", "24", 3, 9)
       expect(e.save_name).to eq("24.S03E09.avi")
     end
+
+    it 'supports double episodes' do
+      e = Episode.new("/some/directory/with/24.avi", "24", 3, 9, true)
+      expect(e.save_name).to eq("24.S03E09E10.avi")
+    end
   end
 
   describe '#show_save_dir_name' do

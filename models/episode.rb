@@ -1,15 +1,16 @@
 class Episode
-  attr_reader :file_path, :name, :season, :episode
+  attr_reader :file_path, :name, :season, :episode, :double
 
-  def initialize(file_path, name, season, episode)
+  def initialize(file_path, name, season, episode, double = false)
     @file_path = file_path
     @name = name
     @season = season
     @episode = episode
+    @double = double
   end
 
   def save_name
-    "#{dotted_name}.S#{padded(season)}E#{padded(episode)}#{extension}"
+    "#{dotted_name}.S#{padded(season)}E#{padded(episode)}#{double_episode_part}#{extension}"
   end
 
   def show_save_dir_name
@@ -20,7 +21,19 @@ class Episode
     "Season.#{padded(season)}"
   end
 
+  def double?
+    @double
+  end
+
   private
+
+  def double_episode_part
+    if double?
+      "E#{padded(episode + 1)}"
+    else
+      ""
+    end
+  end
 
   def extension
     File.extname file_path

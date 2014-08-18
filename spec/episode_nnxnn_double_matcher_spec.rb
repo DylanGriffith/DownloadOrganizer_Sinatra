@@ -42,6 +42,11 @@ describe EpisodeNnxnnDoubleMatcher do
       expect(result).to be_double
     end
 
+    it 'doesnt match path/The.Simpsons.12x01-20/the.simpsons.s12e05.mkv' do
+      result = EpisodeNnxnnDoubleMatcher.match("path/The.Simpsons.12x01-20/the.simpsons.s12e05.mkv")
+      expect(result).to be_nil
+    end
+
     it 'doesnt match ./friends.s01e01.mkv' do
       result = EpisodeNnxnnDoubleMatcher.match("./friends.s01e01.mkv")
       expect(result).to be_nil

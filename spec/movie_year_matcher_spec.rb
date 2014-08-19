@@ -42,12 +42,6 @@ describe MovieYearMatcher do
       expect(result.year).to eq(2012)
     end
 
-    it 'doesnt match ./Some.Title.1080.avi' do
-      path = "./Some.Title.1080.avi"
-      result = MovieYearMatcher.match(path)
-      expect(result).to be_nil
-    end
-
     it 'matches ./Some.Title.1990.avi' do
       path = "./Some.Title.1990.avi"
       result = MovieYearMatcher.match(path)
@@ -62,6 +56,12 @@ describe MovieYearMatcher do
       expect(result.file_path).to eq(path)
       expect(result.name).to eq("Some Title")
       expect(result.year).to eq(1990)
+    end
+
+    it 'doesnt match ./Some.Title.1080.avi' do
+      path = "./Some.Title.1080.avi"
+      result = MovieYearMatcher.match(path)
+      expect(result).to be_nil
     end
   end
 end

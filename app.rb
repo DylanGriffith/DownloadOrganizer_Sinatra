@@ -5,5 +5,6 @@ require './downloads'
 require './assets'
 
 require './lib/string_utils'
-Dir["lib/**/*.rb"].each { |f| load(f) }
-Dir["models/**/*.rb"].each { |f| load(f) }
+require './lib/file_finding'
+Dir[File.join File.dirname(__FILE__), "lib/**/*.rb"].each { |f| require(f) }
+Dir[File.join File.dirname(__FILE__), "models/**/*.rb"].each { |f| load(f) }

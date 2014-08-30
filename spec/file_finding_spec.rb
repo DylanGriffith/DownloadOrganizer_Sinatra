@@ -8,10 +8,10 @@ describe FileFinding do
   let(:test_class) { TestClass.new }
   let(:files) do
     [
-      "./spec/test_dir/test1/somedir/anotherfile.mp3",
-      "./spec/test_dir/test1/somefile.iso",
-      "./spec/test_dir/test1/The.Dark.Knight.Rises.2012/The.Dark.Knight.Rises.2012.mkv",
-      "./spec/test_dir/test1/The.Office.S03E05/to.mkv"
+      Pathname.new("./spec/test_dir/test1/somedir/anotherfile.mp3").expand_path.to_s,
+      Pathname.new("./spec/test_dir/test1/somefile.iso").expand_path.to_s,
+      Pathname.new("./spec/test_dir/test1/The.Dark.Knight.Rises.2012/The.Dark.Knight.Rises.2012.mkv").expand_path.to_s,
+      Pathname.new("./spec/test_dir/test1/The.Office.S03E05/to.mkv").expand_path.to_s
     ]
   end
 
@@ -23,7 +23,7 @@ describe FileFinding do
 
     it 'works when the directories have spaces' do
       test_dir = File.join Global.root, "spec/test_dir/test2"
-      expected = [ "./spec/test_dir/test2/The Dark Knight Rises/The.Dark.Knight.Rises.2012.avi" ]
+      expected = [ Pathname.new("./spec/test_dir/test2/The Dark Knight Rises/The.Dark.Knight.Rises.2012.avi").expand_path.to_s ]
       expect(test_class.find_all(test_dir)).to eq(expected)
     end
   end
@@ -31,8 +31,8 @@ describe FileFinding do
   describe '::filter_all_but_videos' do
     it 'removes all files that are not videos' do
       expected = [
-        "./spec/test_dir/test1/The.Dark.Knight.Rises.2012/The.Dark.Knight.Rises.2012.mkv",
-        "./spec/test_dir/test1/The.Office.S03E05/to.mkv"
+        Pathname.new("./spec/test_dir/test1/The.Dark.Knight.Rises.2012/The.Dark.Knight.Rises.2012.mkv").expand_path.to_s,
+        Pathname.new("./spec/test_dir/test1/The.Office.S03E05/to.mkv").expand_path.to_s
       ]
       expect(test_class.filter_all_but_videos(files)).to eq(expected)
     end

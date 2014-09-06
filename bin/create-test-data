@@ -1,0 +1,4 @@
+DOWNLOADS_DIR=$1
+touch $DOWNLOADS_DIR/some.movie.2012.mkv
+mkdir $DOWNLOADS_DIR/some.show
+touch $DOWNLOADS_DIR/some.show/some.show.s01e01.avi

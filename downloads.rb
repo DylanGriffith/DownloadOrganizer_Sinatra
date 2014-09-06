@@ -10,6 +10,9 @@ class DownloadOrganizer < Sinatra::Base
 
   post "/downloads" do
     content_type :json
+    request.body.rewind
+    data = JSON.parse request.body.read, :symbolize_names => true
+    DownloadProcessor.process_from_hash(data)
     status 200
     body {}.to_json
   end

@@ -18,6 +18,10 @@ class Movie
     "#{dotted_name}.(#{year})"
   end
 
+  def self.from_hash(data)
+    new(data[:file_path], data[:name], data[:year])
+  end
+
   def to_hash
     {
       :file_path => file_path,

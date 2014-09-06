@@ -25,6 +25,10 @@ class Episode
     @double
   end
 
+  def self.from_hash(data)
+    new(data[:file_path], data[:name], data[:season], data[:episode], :double => data[:double])
+  end
+
   def to_hash
     {
       :file_path => file_path,

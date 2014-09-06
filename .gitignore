@@ -1,2 +1,5 @@
 .sass-cache/
 config/settings.yml
+spec/test_dir/downloads/
+spec/test_dir/shows/
+spec/test_dir/movies/

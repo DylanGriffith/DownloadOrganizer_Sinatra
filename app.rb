@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'json'
 require 'coffee_script'
+require 'pathname'
+require 'fileutils'
 require './downloads'
 require './assets'
 

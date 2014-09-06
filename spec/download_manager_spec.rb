@@ -22,9 +22,5 @@ describe DownloadManager do
       expect(movie.save_name).to eq("The.Dark.Knight.Rises.(2012).mkv")
       expect(movie.save_dir_name).to eq("The.Dark.Knight.Rises.(2012)")
     end
-
-    it 'finds items_to_be_deleted' do
-      # TODO: who is responsible for figuring this out?
-    end
   end
 end

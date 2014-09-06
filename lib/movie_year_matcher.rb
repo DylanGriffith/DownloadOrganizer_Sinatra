@@ -1,5 +1,3 @@
-require 'string_utils'
-
 class MovieYearMatcher
   extend StringUtils
 

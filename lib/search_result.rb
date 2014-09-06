@@ -12,4 +12,16 @@ class SearchResult
       @movies << match
     end
   end
+
+  def items_with_matches
+    DirectoryWithMatchesFinder.directories(Global.settings.downloads_dir, (@movies + @episodes).map(&:file_path)).uniq
+  end
+
+  def to_hash
+    {
+      :episode_matches => @episodes.map(&:to_hash),
+      :movie_matches => @movies.map(&:to_hash),
+      :items_with_matches => items_with_matches
+    }
+  end
 end

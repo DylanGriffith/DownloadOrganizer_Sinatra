@@ -18,6 +18,14 @@ class Movie
     "#{dotted_name}.(#{year})"
   end
 
+  def to_hash
+    {
+      :file_path => file_path,
+      :name => name,
+      :year => year
+    }
+  end
+
   private
 
   def extension

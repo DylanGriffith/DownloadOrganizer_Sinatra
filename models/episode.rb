@@ -25,6 +25,16 @@ class Episode
     @double
   end
 
+  def to_hash
+    {
+      :file_path => file_path,
+      :name => name,
+      :season => season,
+      :episode => episode,
+      :double => double
+    }
+  end
+
   private
 
   def double_episode_part

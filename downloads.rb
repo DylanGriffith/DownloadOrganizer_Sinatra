@@ -1,4 +1,8 @@
 class DownloadOrganizer < Sinatra::Base
+  configure :production, :development do
+    enable :logging
+  end
+
   get "/" do
     redirect "/downloads"
   end
@@ -12,7 +16,7 @@ class DownloadOrganizer < Sinatra::Base
     content_type :json
     request.body.rewind
     data = JSON.parse request.body.read, :symbolize_names => true
-    DownloadProcessor.process_from_hash(data)
+    DownloadProcessor.process_from_hash(data, logger: logger)
     status 200
     body {}.to_json
   end
